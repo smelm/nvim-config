@@ -62,6 +62,7 @@ return {
         { '<leader>f', group = '[F]ind' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>b', group = '[B]ug Hunting', mode = { 'n' } },
       },
     },
   },
