@@ -3,11 +3,28 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Make line numbers default
 vim.o.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
+
+-- Move to dir of current file
+vim.opt.autochdir = true
+
+-- NOTE: from old config
+-- vim.opt.compatible = false
+-- vim.opt.errorbells = false
+-- vim.opt.syntax = 'on'
+-- vim.opt.linebreak = true
+-- vim.opt.ignorecase = true
+-- vim.opt.smartcase = true
+-- vim.opt.incsearch = true
+-- vim.opt.hlsearch = false
+
+-- should be handled by guess-indent
+-- vim.opt.smarttab = true
+-- vim.opt.tabstop = 4
+-- vim.opt.softtabstop = 0
+-- vim.opt.expandtab = true
+-- vim.opt.shiftwidth = 4
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'

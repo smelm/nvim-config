@@ -5,8 +5,38 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Tab through buffers
+vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>')
+vim.keymap.set('n', '<leader>q', '<cmd>quit<CR>', { desc = 'Quit Vim' })
+vim.keymap.set('n', '<leader>w', '<cmd>write<CR>', { desc = 'Write buffer' })
+vim.keymap.set('n', '<leader>d', '<cmd>bdelete<CR>', { desc = 'Delete buffer' })
+
+-- Exit insert mode
+vim.api.nvim_set_keymap('i', 'kj', '<ESC>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true, silent = true })
+
+-- Insert german characters
+vim.api.nvim_set_keymap('i', 'oo', '<c-k>:o', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'aa', '<c-k>:a', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'uu', '<c-k>:u', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'OO', '<c-k>:O', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'AA', '<c-k>:A', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'UU', '<c-k>:U', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'zz', '<c-k>ss', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { desc = 'Yank to clipboard' })
+vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { desc = 'Paste from clipboard' })
+vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { desc = 'Yank to clipboard' })
+vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { desc = 'Paste from clipboard' })
+
+-- Indentation in visual mode
+-- Reselect after indentation
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
+
+-- TODO: Other mapping, this overlaps with quit
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -16,6 +46,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- TODO: Map these to the debugging moves
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
