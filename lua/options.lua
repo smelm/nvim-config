@@ -6,8 +6,9 @@
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- TODO: how to deal with this?
 -- Move to dir of current file
-vim.opt.autochdir = true
+-- vim.opt.autochdir = true
 
 -- NOTE: from old config
 -- vim.opt.compatible = false
