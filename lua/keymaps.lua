@@ -7,9 +7,17 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Tab through buffers
 vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>')
-vim.keymap.set('n', '<leader>q', '<cmd>quit<CR>', { desc = 'Quit Vim' })
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>', { desc = 'Write buffer' })
-vim.keymap.set('n', '<leader>d', '<cmd>bdelete<CR>', { desc = 'Delete buffer' })
+vim.keymap.set('n', '<leader>q', function()
+  local buffname = vim.fn.expand '%'
+
+  if buffname == nil or buffname == '' then
+    vim.api.nvim_command 'quit'
+  else
+    local current_buf = vim.api.nvim_get_current_buf()
+    vim.api.nvim_buf_delete(current_buf, {})
+  end
+end, { desc = 'Close bother or Quit Vim' })
 
 -- Exit insert mode
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', { noremap = true, silent = true })
