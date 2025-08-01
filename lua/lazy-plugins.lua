@@ -40,6 +40,7 @@ require('lazy').setup({
   require 'kickstart.plugins.neo-tree',
   require 'custom.plugins.git',
   require 'custom.plugins.buffertabs',
+  require 'custom.plugins.mkdnflow',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
