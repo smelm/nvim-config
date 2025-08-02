@@ -9,6 +9,8 @@ vim.o.relativenumber = true
 -- TODO: how to deal with this?
 -- Move to dir of current file
 -- vim.opt.autochdir = true
+vim.o.swapfile = false
+vim.o.hidden = true
 
 -- NOTE: from old config
 -- vim.opt.compatible = false
@@ -21,11 +23,11 @@ vim.o.relativenumber = true
 -- vim.opt.hlsearch = false
 
 -- should be handled by guess-indent
--- vim.opt.smarttab = true
--- vim.opt.tabstop = 4
--- vim.opt.softtabstop = 0
--- vim.opt.expandtab = true
--- vim.opt.shiftwidth = 4
+vim.opt.smarttab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 0
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
