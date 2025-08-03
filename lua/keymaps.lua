@@ -19,6 +19,11 @@ vim.keymap.set('n', '<leader>q', function()
   end
 end, { desc = 'Close bother or Quit Vim' })
 
+vim.keymap.set('n', '<leader>c', function()
+  local dir = vim.fn.expand '%:p:h'
+  vim.fn.chdir(dir)
+end, { desc = 'cd to buffer' })
+
 -- Exit insert mode
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true, silent = true })
