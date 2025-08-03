@@ -55,17 +55,22 @@ return {
         vim.keymap.set('n', keys, '<cmd>' .. command .. '<cr>', { buffer = true })
       end
 
+      local function alias(keys, command)
+        vim.keymap.set('i', keys, command, { buffer = true })
+      end
+
       vim.api.nvim_create_autocmd('BufRead', {
         pattern = { '*.md' },
         callback = function()
           setall('<cr>', 'MkdnEnter')
+          setall('<', 'MkdnIncreaseHeading')
+          setall('>', 'MkdnDecreaseHeading')
+
           setall('<leader>mu', 'MkdnCreateLinkFromClipboard')
           setall('<leader>mdl', 'MkdnDestroyLink')
           setall('<leader>mr', 'MkdnMoveSource')
 
           setall('<leader>myl', 'MkdnYankAnchorLink')
-          setall('<leader>m<', 'MkdnIncreaseHeading')
-          setall('<leader>m>', 'MkdnDecreaseHeading')
           setall('<leader>m<leader>', 'MkdnToggleToDo')
 
           setnormal('o', 'MkdnNewListItemBelowInsert')
@@ -73,7 +78,15 @@ return {
           setnormal('<leader>mf', 'MkdnFoldSection')
           setnormal('<leader>mF', 'MkdnUnfoldSection')
 
-          -- vim.keymap.set('n', '<leader><leader>', '<cmd>MkdnFoldSection<cr>')
+          alias('SS', '### SZENE: ')
+          alias('CC', '### CHARAKTER: ')
+          alias('BB', '#### BEAT: ')
+          alias('KK', '## KAPITEL: ')
+          alias('FF', 'FAKT: ')
+          alias('SET', 'SETUP: ')
+
+          -- vim.cmd '<cmd>syntax keyword Type FAKT<cr>'
+          -- vim.cmd '<cmd>syntax keyword Type SETUP<cr>'
         end,
       })
     end,
