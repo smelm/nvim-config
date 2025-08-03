@@ -17,6 +17,9 @@ return {
           end
           return 'make install_jsregexp'
         end)(),
+        config = function()
+          require 'snippets'
+        end,
         dependencies = {
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
