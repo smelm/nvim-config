@@ -29,7 +29,15 @@ return {
       -- cursor location to LINE:COLUMN
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
-        return '%2l:%-2v'
+        return '%2l/%2L'
+      end
+
+      -- TODO: Duplicated from the repo
+      -- is there a better way?
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_fileinfo = function()
+        local filetype = vim.bo.filetype
+        return filetype
       end
 
       -- ... and there is more!
